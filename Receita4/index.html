@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+            <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
+    </body>
+
+    <script>
+        let cervejas = ["Guiness", "Desperados", "Becks"]
+        function transformar(item) {
+            return `<tr><td id="cervejas">${item}</td></tr>`
+        }
+        function ordenar() {
+            cervejas = cervejas.sort()
+            carregarDiv()
+        }
+        function embaralhar() {
+            cervejas = cervejas.sort(() => Math.random() - 0.5)
+            carregarDiv()
+        }
+        function carregarDiv() {
+            let div = document.getElementById("meu amor")
+            let cervejasHtml = cervejas.map(transformar)
+            div.innerHTML = `<table id="table">${cervejasHtml.join("\n")}</table>
+                            <button id="botaoOrdenar">Ordenar cervejas...</button>
+                            <button id="botaoEmbaralhar">Embaralhar cervejas...</button>`
+            let botaoOrdenar = document.getElementById("botaoOrdenar")
+            botaoOrdenar.addEventListener("click", ordenar)
+            let botaoEmbaralhar = document.getElementById("botaoEmbaralhar")
+            botaoEmbaralhar.addEventListener("click", embaralhar)
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)
+    </script>
+
+</html>
