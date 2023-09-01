@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="meu_amor"></div>
+    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+</body>
+<script>
+    let changeVisibility = 0
+    function carregarDiv() {
+        let div = document.getElementById("meu_amor")
+        div.style.color = "#333333"
+        div.innerHTML = `<h1>Guinness</h1>`
+        if (changeVisibility != 0) { 
+            div.style.animation = "hide 2s linear"
+            changeVisibility = 0
+        } else { 
+            div.style.animation = "show 2s linear" 
+            changeVisibility = 1
+        } 
+    }
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", carregarDiv)
+</script>
+</html>
