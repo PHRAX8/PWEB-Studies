@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="meuAmor"><a id="botaoCarregar">Carregar roupas...</a></div>
+</body>
+<script>
+    const clothes = ["Adidas", "Nike", "Hering"];
+    const ordenar = (cervs) => {
+      cervs = cervs.sort()
+      carregarDiv(cervs)
+    }
+    const embaralhar = (cervs) => {
+      cervs = cervs.sort(() => Math.random() - 0.5)
+      carregarDiv(cervs)
+    }
+    const carregarDiv = (cervs) => {
+        const div = document.getElementById("meuAmor");
+        const tableHtml = cervs.map(item => `<tr><td id="clothes">${item}</td></tr>`);
+        div.innerHTML = `<table id="table">${tableHtml.join("\n")}</table>
+                        <a id="botaoOrdenar">Ordenar roupas...</a>
+                        <a id="botaoEmbaralhar">Embaralhar roupas...</a>`
+        const botaoOrdenar = document.getElementById("botaoOrdenar")
+        botaoOrdenar.addEventListener("click", () => {
+        ordenar(clothes);
+    })
+        const botaoEmbaralhar = document.getElementById("botaoEmbaralhar")
+        botaoEmbaralhar.addEventListener("click", () => {
+        embaralhar(clothes);
+    })
+    }              
+    const botao = document.getElementById("botaoCarregar");
+    botao.addEventListener("click", () => {
+        carregarDiv(clothes);
+    });
+</script>
+</html>

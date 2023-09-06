@@ -1,0 +1,18 @@
+#clothes {
+    color: brown;
+    font-size: larger;
+}
+
+#table {
+    background-color: burlywood;
+}
+
+a {
+    background-color: rgb(8, 73, 18);
+    color: aliceblue;
+    font-size: small;
+}
+
+a:hover {
+    cursor: pointer;
+}
