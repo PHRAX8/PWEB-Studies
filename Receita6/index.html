@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">  
+      <link rel="stylesheet" href="styles.css">    
+   </head>
+   <body>
+      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+      <table id="cervejasTable"></table>            
+   </body>   
+   <script>
+      let cervejas = [
+         {
+            name: "Guiness", 
+            alcohol: "10%",
+            style: "Red Ale",
+            ibu: "15"            
+         }, 
+         {
+            name: "Desperados",
+            alcohol: "6%",
+            style: "English IPA",
+            ibu: "30"              
+         }, 
+         {
+            name: "Becks",
+            alcohol: "5%",
+            style: "Imperial Stout",
+            ibu: "45"              
+         }
+      ]
+      const carregarTable = (cs, htmlId = "cervejasTable", name = "Nome", alcohol = "Álcool", style = "Estilo", ibu = "Amargor", property1 = "name", property2 = "alcohol", property3 = "style", property4 = "ibu") => {
+         const table = document.getElementById(htmlId)
+         const itensHtml = cs.map(item => `<tr><td>${item[property1]}</td><td>${item[property2]}</td><td>${item[property3]}</td><td>${item[property4]}</td></tr>`);
+         table.innerHTML = `<tr><th>${name}</th><th>${alcohol}</th><th>${style}</th><th>${ibu}</th></tr>${itensHtml.join("\n")}`
+      }
+      let botao = document.getElementById("botaoCarregar")
+      botao.addEventListener("click", () => carregarTable(cervejas) )                 
+   </script>
+</html>
