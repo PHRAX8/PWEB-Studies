@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">  
+      <link rel="stylesheet" href="styles.css">     
+   </head>
+   <body>
+      <div><button id="botaoCarregar">Carregando Itens...</button></div>
+      <div id="UsersDiv"></div>            
+   </body>   
+   <script>
+      let users = []
+      const carregarDiv = (data, targetElement) => {
+        const div = document.getElementById(targetElement);
+        const itensHtml = data.map(item => {
+            const itemProps = Object.keys(item).slice(2, 6).map(prop => `${prop}: ${item[prop]}`).join(" -- ");
+            return `<div id="itens">${itemProps}</div>`;
+        });
+        div.innerHTML = `${itensHtml.join("\n")}`;
+        };
+
+        async function loadData(apiUrl, targetElement) {
+        try {
+            let res = await fetch(apiUrl);
+            let data = await res.json();
+            carregarDiv(data, targetElement);
+        } catch (err) {
+            document.getElementById(targetElement).innerHTML = "Error";
+        }
+        }
+
+      let botao = document.getElementById("botaoCarregar")
+      botao.addEventListener("click", () => loadData("https://random-data-api.com/api/v2/users?size=10", "UsersDiv") )                 
+   </script>
+</html>

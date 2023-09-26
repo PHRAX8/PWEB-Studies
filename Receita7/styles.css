@@ -1,0 +1,19 @@
+#itens {
+    border-radius: 1px;
+    border-style: solid;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: black;
+    background-color:aliceblue;
+}
+
+#UsersDiv {
+    border-radius: 1px;
+    border-style: solid;
+    color: black;
+    background-color: rgb(162, 130, 130);
+}
+
+#botaoCarregar {
+    margin-bottom: 15px;
+}
