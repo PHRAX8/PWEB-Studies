@@ -5,4 +5,5 @@ Web programing activities
 /Receita2 => {Unidade 1 - Tarefa 2 - css}                         
 /Receita3 & /Receita4 => {Unidade 1 - Tarefa 3 - JavaScript intro}              
 /Receita5 => {Unidade 1 - Tarefa 4 - arrow functions}               
-/Receita6 => {Unidade 1 - Tarefa 5 - json}               
+/Receita6 => {Unidade 1 - Tarefa 5 - json}                         
+/Receita7 => {Unidade 1 - Tarefa 6 - json}               
